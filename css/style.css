@@ -49,49 +49,13 @@ table {
 /*----------------------------FONTS---------------------*/
 
   @font-face {
-      font-family: 'digital-7_italicitalic';
-      src: url('digital-7_italic-webfont.eot');
-      src: url('digital-7_italic-webfont.eot?#iefix') format('embedded-opentype'),
-           url('digital-7_italic-webfont.woff2') format('woff2'),
-           url('digital-7_italic-webfont.woff') format('woff'),
-           url('digital-7_italic-webfont.ttf') format('truetype'),
-           url('digital-7_italic-webfont.svg#digital-7_italicitalic') format('svg');
-      font-weight: normal;
-      font-style: italic;
-  }
-
-  @font-face {
-      font-family: 'digital-7_monoitalic';
-      src: url('digital-7_mono_italic-webfont.eot');
-      src: url('digital-7_mono_italic-webfont.eot?#iefix') format('embedded-opentype'),
-           url('digital-7_mono_italic-webfont.woff2') format('woff2'),
-           url('digital-7_mono_italic-webfont.woff') format('woff'),
-           url('digital-7_mono_italic-webfont.ttf') format('truetype'),
-           url('digital-7_mono_italic-webfont.svg#digital-7_monoitalic') format('svg');
-      font-weight: normal;
-      font-style: italic;
-  }
-
-  @font-face {
-      font-family: 'digital-7_monomono';
-      src: url('digital-7_mono-webfont.eot');
-      src: url('digital-7_mono-webfont.eot?#iefix') format('embedded-opentype'),
-           url('digital-7_mono-webfont.woff2') format('woff2'),
-           url('digital-7_mono-webfont.woff') format('woff'),
-           url('digital-7_mono-webfont.ttf') format('truetype'),
-           url('digital-7_mono-webfont.svg#digital-7_monomono') format('svg');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
       font-family: 'digital-7regular';
-      src: url('digital-7-webfont.eot');
-      src: url('digital-7-webfont.eot?#iefix') format('embedded-opentype'),
-           url('digital-7-webfont.woff2') format('woff2'),
-           url('digital-7-webfont.woff') format('woff'),
-           url('digital-7-webfont.ttf') format('truetype'),
-           url('digital-7-webfont.svg#digital-7regular') format('svg');
+      src: url('.././fonts/digital-7-webfont.eot');
+      src: url('.././fonts/digital-7-webfont.eot?#iefix') format('embedded-opentype'),
+           url('.././fonts/digital-7-webfont.woff2') format('woff2'),
+           url('.././fonts/digital-7-webfont.woff') format('woff'),
+           url('.././fonts/digital-7-webfont.ttf') format('truetype'),
+           url('.././fonts/digital-7-webfont.svg#digital-7regular') format('svg');
       font-weight: normal;
       font-style: normal;
   }
@@ -160,10 +124,25 @@ html, body {
   z-index: 1;
 }
 
+  .timercontainer{
+  position: absolute;
+
+}
   .timer{
   font-family:'digital-7regular', sans-serif;
-  font-size: 2rem;
-  color: white;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: black;
+  text-align: right;
+  margin: 1rem 0 0 43rem;
+  padding: .5rem;
+  position: absolute;
+  overflow: auto;
+  background-color: #EDF1F2;
+  border: 2px solid white;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 2px lime, 0 0 8px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.8);
   }
 
 /*----------------MEDIA QUERY-----------------------------*/
@@ -192,10 +171,12 @@ html, body {
     top: 35px;
     color: #EDF1F2;
     font-family: 'Arial', sans-serif;
+    margin-right: .5rem;
   }
 
   .rocketicon {
-    margin: 0;
+    margin-top: 1rem;
+    margin-right: .5rem;
     font-size: 0.5rem;
     letter-spacing: 0.5rem;
     text-transform: uppercase;
