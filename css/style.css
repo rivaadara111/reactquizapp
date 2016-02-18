@@ -142,7 +142,7 @@ html, body {
   border: 2px solid white;
   border-radius: 2px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 0 2px lime, 0 0 8px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.8);
+  text-shadow: 0 0 2px black, 0 0 8px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.8);
   }
 
 /*----------------MEDIA QUERY-----------------------------*/

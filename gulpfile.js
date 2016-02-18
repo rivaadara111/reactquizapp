@@ -1,6 +1,4 @@
 var gulp = require('gulp');
-var babel = require('gulp-babel');
-var browserify = require('gulp-browserify');
 var browserSync = require('browser-sync');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
@@ -10,6 +8,7 @@ var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
+var webpack = require('webpack-stream');
 
 
 gulp.task('sass', function() {
@@ -25,14 +24,24 @@ gulp.task('sass', function() {
 
 gulp.task('compile-react', function() {
 	return gulp.src('./js/main.jsx')
-		.pipe(plumber())
-		.pipe(babel({
-			presets: ['es2015', 'react']
-		}))
-		.pipe(browserify({
-			insertGlobals: true,
-			debug: true
-		}))
+		.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+		.pipe(webpack({
+      output: {
+        filename: 'main.js'
+    },
+    module: {
+      loaders: [
+    {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['react', 'es2015']
+      }
+    }
+  ]
+}
+}))
 		.pipe(gulp.dest('./js'));
 });
 
@@ -43,7 +52,7 @@ gulp.task('browser-sync', ['compile-react'], function() {
 	});
 
 	gulp.watch(['./js/main.jsx'], ['compile-react']);
-	gulp.watch(['./js/main.js','./build/css/style.min.css', 'index.html'] ).on('change', browserSync.reload);
+	gulp.watch(['./js/main.js','./css/style.css','./build/css/style.min.css', 'index.html'] ).on('change', browserSync.reload);
   gulp.watch('./sass/*.scss', ['sass']);
   });
 
