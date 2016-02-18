@@ -150,6 +150,7 @@ i.fa-space-shuttle {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   width: 175px;
   height: 50px;
+  /*change height and width to rems*/
   }
 
 .testbutton:hover {
@@ -173,7 +174,7 @@ i.fa-space-shuttle {
 @media only screen and (min-width: 640px) {
 
   .sider{
-  width:20vw;
+  width:0vw;
   }
 
 
