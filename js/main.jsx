@@ -15,7 +15,8 @@ var Quiz = React.createClass({
     </header>
 
     <div className='main'>
-      <button className='testbutton'><span>Take Test</span></button>
+      <button className='testbutton'><span>TAKE TEST</span></button>
+      <button className='testbutton'><span>BEGIN EVALUATION</span></button>
     </div>
 
   </div>

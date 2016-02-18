@@ -42,11 +42,9 @@ gulp.task('browser-sync', ['compile-react'], function() {
 		server: './'
 	});
 
-	gulp.watch(['main.jsx'], ['compile-react']);
-	gulp.watch(['main.js', 'index.html']).on('change', browserSync.reload);
-  gulp.watch('sass/*.scss' ['.sass']);
-  gulp.watch('./js/*.js').on('change', browserSync.reload);
-  gulp.watch(['./build/main.min.js','./build/style.min.css','./index.html']).on('change', browserSync.reload);
-});
+	gulp.watch(['./js/main.jsx'], ['compile-react']);
+	gulp.watch(['./js/main.js','./build/css/style.min.css', 'index.html'] ).on('change', browserSync.reload);
+  gulp.watch('./sass/*.scss', ['sass']);
+  });
 
 gulp.task('default', ['sass', 'browser-sync']);
