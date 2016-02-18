@@ -63,7 +63,8 @@ html, body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; }
+  overflow: hidden;
+  }
 
 .landingpage{
   display: flex;
@@ -71,17 +72,13 @@ html, body {
 }
 
 .sider{
-  flex: 0 1 15%;
-  order: 1;
+  flex: 0 1 10%;
   height: 100vh;
   margin: 0;
   position: relative;
-}
-
-.sider-container{
-  display:flex
-  align-items: center;
-  justify-content: center;
+  display:flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 h1{
@@ -95,7 +92,42 @@ h1{
   top: 100px;
   color: #EDF1F2;
   font-family: 'Arial', sans-serif;
+  order:1;
+  margin-bottom: 50px;
+  margin-left: 1rem;
 }
+
+.rocketicon {
+  margin: 0;
+  font-size: 0.5rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  line-height: 1rem;
+  border-radius: 50%;
+  order:2;
+  top: 100px;
+  margin-bottom: 200px;
+  margin-left: 1rem;
+  background: #fd746c;
+  background: -webkit-linear-gradient(to top, #fd746c, #ff9068);
+  background: linear-gradient(to top, #fd746c, #ff9068);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+  }
+
+
+i.fa-space-shuttle {
+  transform: rotate(-90deg);
+  font-size: 4rem;
+  position: relative;
+  left: -5px;
+  top: -4px; }
 
 .main{
   flex: 1 0 80%;
@@ -116,16 +148,26 @@ h1{
   padding: 1rem 4rem;
   border-radius: 2px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  width: 175px;
+  height: 50px;
+  }
+
+.testbutton:hover {
+    cursor: pointer;
+  }
+
+.testbutton:active {
+    box-shadow: 0 10px 20px transparent;
+  }
+
+
+  .testbutton span{
   color: black;
   font-weight: bold;
   font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: -1px;}
-  button:hover {
-    cursor: pointer; }
-  button:active {
-    box-shadow: 0 10px 20px transparent; }
- 
+  letter-spacing: -1px;
+}
 
 
 @media only screen and (min-width: 640px) {

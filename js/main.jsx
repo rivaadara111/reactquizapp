@@ -8,12 +8,10 @@ var Quiz = React.createClass({
   <div className='landingpage'>
 
     <header className='sider'>
-    <div className='sider-container'
       <h1>MARS</h1>
         <div className='rocketicon'>
           <i className='fa fa-space-shuttle'></i>
         </div>
-    </div>
     </header>
 
     <div className='main'>
