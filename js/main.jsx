@@ -1,0 +1,29 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var Quiz = React.createClass({
+
+  render: function(){
+    return (
+  <div className='landingpage'>
+
+    <header className='sider'>
+    <div className='sider-container'
+      <h1>MARS</h1>
+        <div className='rocketicon'>
+          <i className='fa fa-space-shuttle'></i>
+        </div>
+    </div>
+    </header>
+
+    <div className='main'>
+      <button className='testbutton'><span>Take Test</span></button>
+    </div>
+
+  </div>
+
+    )
+  }
+});
+
+ReactDOM.render(<Quiz />, document.querySelector('#quiz-app'));
