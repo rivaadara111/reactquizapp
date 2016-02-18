@@ -52,7 +52,7 @@ gulp.task('browser-sync', ['compile-react'], function() {
 	});
 
 	gulp.watch(['./js/main.jsx'], ['compile-react']);
-	gulp.watch(['./js/main.js','./css/style.css','./build/css/style.min.css', 'index.html'] ).on('change', browserSync.reload);
+	gulp.watch(['./js/main.js','./css/style.css','./build/css/style.min.css', 'index.html', 'compile-react'] ).on('change', browserSync.reload);
   gulp.watch('./sass/*.scss', ['sass']);
   });
 
