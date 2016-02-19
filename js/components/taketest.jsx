@@ -1,9 +1,17 @@
 var React = require('react');
-
-// import Question screen from './components/question-screen.jsx';
+import {browserHistory} from 'react-router';
 import Timer from './timer.jsx';
+// import Question screen from './components/question-screen.jsx';
 
 var Taketest = React.createClass({
+
+//getting browserHistory to push new pages on TO BE DETERMINED onlick event 
+  Accepted(){
+    browserHistory.push('/accepted');
+  },
+  Rejected(){
+    browserHistory.push('/rejected');
+  },
 
   getInitialState(){
     return {

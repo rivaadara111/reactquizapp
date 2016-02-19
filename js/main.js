@@ -60,10 +60,18 @@
 
 	var _2 = _interopRequireDefault(_);
 
+	var _accepted = __webpack_require__(219);
+
+	var _accepted2 = _interopRequireDefault(_accepted);
+
+	var _rejected = __webpack_require__(220);
+
+	var _rejected2 = _interopRequireDefault(_rejected);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(24);
-	var ReactDOM = __webpack_require__(219);
+	var ReactDOM = __webpack_require__(221);
 
 	//components
 
@@ -79,6 +87,8 @@
 	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcomepage' }),
 	        React.createElement(_reactRouter.Route, { path: 'welcomepage', component: _welcomepage2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'take-test', component: _taketest2.default }),
+	        React.createElement(_reactRouter.Route, { path: 'accepted', component: _accepted2.default }),
+	        React.createElement(_reactRouter.Route, { path: 'rejected', component: _rejected2.default }),
 	        React.createElement(_reactRouter.Route, { path: '*', component: _2.default })
 	      )
 	    );
@@ -24710,6 +24720,8 @@
 
 	'use strict';
 
+	var _reactRouter = __webpack_require__(1);
+
 	var _timer = __webpack_require__(216);
 
 	var _timer2 = _interopRequireDefault(_timer);
@@ -24720,9 +24732,17 @@
 
 	// import Question screen from './components/question-screen.jsx';
 
-
 	var Taketest = React.createClass({
 	  displayName: 'Taketest',
+
+
+	  //getting browserHistory to push new pages on TO BE DETERMINED onlick event
+	  Accepted: function Accepted() {
+	    _reactRouter.browserHistory.push('/accepted');
+	  },
+	  Rejected: function Rejected() {
+	    _reactRouter.browserHistory.push('/rejected');
+	  },
 	  getInitialState: function getInitialState() {
 	    return {
 	      startTimer: false
@@ -24944,6 +24964,112 @@
 
 /***/ },
 /* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _reactRouter = __webpack_require__(1);
+
+	var React = __webpack_require__(24);
+
+
+	var Accepted = React.createClass({
+	  displayName: 'Accepted',
+
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'landingpage' },
+	      React.createElement(
+	        'header',
+	        { className: 'sider' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          'MARS'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'rocketicon' },
+	          React.createElement('i', { className: 'fa fa-space-shuttle' })
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'main' },
+	        React.createElement(
+	          'h2',
+	          null,
+	          'ACCEPTED'
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'You have been accepted to mars mission.'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Accepted;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _reactRouter = __webpack_require__(1);
+
+	var React = __webpack_require__(24);
+
+
+	var Rejected = React.createClass({
+	  displayName: 'Rejected',
+
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'landingpage' },
+	      React.createElement(
+	        'header',
+	        { className: 'sider' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          'MARS'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'rocketicon' },
+	          React.createElement('i', { className: 'fa fa-space-shuttle' })
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'main' },
+	        React.createElement(
+	          'h2',
+	          null,
+	          'REJECTED'
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'We regret to inform you that you are not good enough to colonize mars. Choke smog and die, sucker!!'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Rejected;
+
+/***/ },
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
