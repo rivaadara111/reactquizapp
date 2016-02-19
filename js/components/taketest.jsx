@@ -5,7 +5,7 @@ import Timer from './timer.jsx';
 
 var Taketest = React.createClass({
 
-//getting browserHistory to push new pages on TO BE DETERMINED onlick event 
+//getting browserHistory to push new pages on TO BE DETERMINED onlick event
   Accepted(){
     browserHistory.push('/accepted');
   },
@@ -15,13 +15,22 @@ var Taketest = React.createClass({
 
   getInitialState(){
     return {
-      startTimer: false
+      startTimer: false,
+      showQuestions: false,
+      input: '',
+      questions: [ 'helloooo' , 'hi', 'sup'    ]
     }
   },
 
 //telling browser to start timer when state of startTimer via clicked button is set to true
   tellTimerToStart: function(){
-    this.setState({ startTimer: true});
+    this.setState({startTimer: true}, {showQuestions: true});
+  },
+//defining questions object
+  generateQuestion: function(){
+    return this.state.questions[0]
+    return this.state.questions[1]
+    return this.state.questions[2]
   },
 
   // finishTest function to be written HERE to render accepted or rejected page using if/else statement
@@ -38,11 +47,22 @@ var Taketest = React.createClass({
     </header>
 
     <div className='main'>
+
       <div className='timercontainer'>
         <Timer start={this.state.startTimer}/></div>
       { !this.state.startTimer ? <button className='testbutton' onClick={this.tellTimerToStart}><span>BEGIN EVALUATION</span></button>: ''}
+
+      <form className='questionpane'>
+          <p>{this.generateQuestion()}</p>
+        <input type='text' placeholder='enter answer here'/>
+      </form>
+
     </div>
-    </div>
+
+  </div>
+
+//form event names: onChange, onInput, onSubmit
+
 /*//Macs solution
 <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
 { !this.state.start ? <button onClick={this.startQuiz}}

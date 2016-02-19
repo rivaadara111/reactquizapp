@@ -24745,14 +24745,23 @@
 	  },
 	  getInitialState: function getInitialState() {
 	    return {
-	      startTimer: false
+	      startTimer: false,
+	      showQuestions: false,
+	      input: '',
+	      questions: ['helloooo', 'hi', 'sup']
 	    };
 	  },
 
 
 	  //telling browser to start timer when state of startTimer via clicked button is set to true
 	  tellTimerToStart: function tellTimerToStart() {
-	    this.setState({ startTimer: true });
+	    this.setState({ startTimer: true }, { showQuestions: true });
+	  },
+	  //defining questions object
+	  generateQuestion: function generateQuestion() {
+	    return this.state.questions[0];
+	    return this.state.questions[1];
+	    return this.state.questions[2];
 	  },
 
 	  // finishTest function to be written HERE to render accepted or rejected page using if/else statement
@@ -24791,9 +24800,22 @@
 	            null,
 	            'BEGIN EVALUATION'
 	          )
-	        ) : ''
+	        ) : '',
+	        React.createElement(
+	          'form',
+	          { className: 'questionpane' },
+	          React.createElement(
+	            'p',
+	            null,
+	            this.generateQuestion()
+	          ),
+	          React.createElement('input', { type: 'text', placeholder: 'enter answer here' })
+	        )
 	      )
 	    )
+
+	    //form event names: onChange, onInput, onSubmit
+
 	    /*//Macs solution
 	    <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
 	    { !this.state.start ? <button onClick={this.startQuiz}}
