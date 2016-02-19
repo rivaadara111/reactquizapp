@@ -1,9 +1,10 @@
 var React = require('react');
+import {browserHistory} from 'react-router';
 
 var Welcomepage = React.createClass({
 
   takeTest(){
-    this.props.history.push('/take-test');
+    browserHistory.push('/take-test');
   },
 
   render: function(){

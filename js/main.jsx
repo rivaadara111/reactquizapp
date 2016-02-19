@@ -12,9 +12,9 @@ var App = React.createClass({
     return (
 //routing different components to URLS that we choose
     <Router history={browserHistory}>
-      <Redirect from='/' to='/welcome-page'/>
-      <Route path='welcome-page' component={Welcomepage}/>
-      <Route path='/take-test' component={Taketest}/>
+      <Redirect from='/' to='/welcomepage'/>
+      <Route path='welcomepage' component={Welcomepage}/>
+      <Route path='take-test' component={Taketest}/>
       <Route path='*' component={NotFound}/>
     </Router>
 

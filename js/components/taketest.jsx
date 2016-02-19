@@ -1,9 +1,22 @@
 var React = require('react');
 
-// import Question from './components/question-screen.jsx';
+// import Question screen from './components/question-screen.jsx';
 import Timer from './timer.jsx';
 
 var Taketest = React.createClass({
+
+  getInitialState(){
+    return {
+      startTimer: false
+    }
+  },
+
+//trying to tell browser to start timer at the same time
+  tellTimerToStart: function(){
+    this.setState({ startTimer: true});
+  },
+
+  // finishTest function to be written HERE to render accepted or rejected page using if/else statement
 
   render: function(){
     return (
@@ -17,13 +30,16 @@ var Taketest = React.createClass({
     </header>
 
     <div className='main'>
-      <div className='timercontainer'><Timer /></div>
-      <button className='testbutton' onClick={this.timer}><span>BEGIN EVALUATION</span></button>
+      <div className='timercontainer'>
+        <Timer start={this.state.startTimer}/></div>
+      { !this.state.startTimer ? <button className='testbutton' onClick={this.tellTimerToStart}><span>BEGIN EVALUATION</span></button>: ''}
     </div>
 
-
-
-  </div>
+    </div>
+/*//Macs solution
+<Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
+{ !this.state.start ? <button onClick={this.startQuiz}}
+{this.state. start > this.renderTimer() : ''}*/
 
     )
   }

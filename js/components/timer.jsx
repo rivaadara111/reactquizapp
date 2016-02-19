@@ -7,6 +7,11 @@ var Timer = React.createClass({
       secondsToElapse:  60
     }
   },
+  //
+  startTimer: function(){
+      this.interval = setInterval(this.tick, 1000);
+  //  this.startTimer();
+  },
 
   //return minutes and seconds in seperate functions
   renderMinutes: function(){
@@ -19,23 +24,28 @@ var Timer = React.createClass({
 
   resetTimer: function(){
    clearInterval(this.interval);
-   this.setState({ secondsToElapse: 0 });
-   this.start();
- },
+  //  this.setState({ secondsToElapse: 0 });
+   if (this.state.secondsToElapse === 0){
+    clearInterval()}
+  },
 
   tick: function(){
   this.setState({secondsToElapse: this.state.secondsToElapse - 1 });
-  // if (this.state.secondsRemaining <= 0) {
-  //     clearInterval(this.interval);
-  //   }
+  if (this.state.secondsToElapse <= 0) {
+  clearInterval(this.interval);
+    }
   },
 
-  start: function(){
-      this.interval = setInterval(this.tick, 1000);
+  clearInterval: function(){
+  if(this.state.secondsRemaining === 0){
+    this.resetTimer();
+    }
   },
 
-  componentDidMount: function(){
-   setTimeout(this.start, this.props.timeout);
+  componentWillReceiveProps: function(newTimerOnProps) {
+    if(newTimerOnProps.start === true) {
+      this.startTimer();
+    }
   },
 
   render: function(){

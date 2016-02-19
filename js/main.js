@@ -76,9 +76,9 @@
 	      React.createElement(
 	        _reactRouter.Router,
 	        { history: _reactRouter.browserHistory },
-	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcome-page' }),
-	        React.createElement(_reactRouter.Route, { path: 'welcome-page', component: _welcomepage2.default }),
-	        React.createElement(_reactRouter.Route, { path: '/take-test', component: _taketest2.default }),
+	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcomepage' }),
+	        React.createElement(_reactRouter.Route, { path: 'welcomepage', component: _welcomepage2.default }),
+	        React.createElement(_reactRouter.Route, { path: 'take-test', component: _taketest2.default }),
 	        React.createElement(_reactRouter.Route, { path: '*', component: _2.default })
 	      )
 	    );
@@ -24718,12 +24718,24 @@
 
 	var React = __webpack_require__(24);
 
-	// import Question from './components/question-screen.jsx';
+	// import Question screen from './components/question-screen.jsx';
 
 
 	var Taketest = React.createClass({
 	  displayName: 'Taketest',
+	  getInitialState: function getInitialState() {
+	    return {
+	      startTimer: false
+	    };
+	  },
 
+
+	  //trying to tell browser to start timer at the same time
+	  tellTimerToStart: function tellTimerToStart() {
+	    this.setState({ startTimer: true });
+	  },
+
+	  // finishTest function to be written HERE to render accepted or rejected page using if/else statement
 
 	  render: function render() {
 	    return React.createElement(
@@ -24749,19 +24761,25 @@
 	        React.createElement(
 	          'div',
 	          { className: 'timercontainer' },
-	          React.createElement(_timer2.default, null)
+	          React.createElement(_timer2.default, { start: this.state.startTimer })
 	        ),
-	        React.createElement(
+	        !this.state.startTimer ? React.createElement(
 	          'button',
-	          { className: 'testbutton', onClick: this.timer },
+	          { className: 'testbutton', onClick: this.tellTimerToStart },
 	          React.createElement(
 	            'span',
 	            null,
 	            'BEGIN EVALUATION'
 	          )
-	        )
+	        ) : ''
 	      )
-	    );
+	    )
+	    /*//Macs solution
+	    <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
+	    { !this.state.start ? <button onClick={this.startQuiz}}
+	    {this.state. start > this.renderTimer() : ''}*/
+
+	    ;
 	  }
 	});
 
@@ -24784,6 +24802,11 @@
 	      secondsToElapse: 60
 	    };
 	  },
+	  //
+	  startTimer: function startTimer() {
+	    this.interval = setInterval(this.tick, 1000);
+	    //  this.startTimer();
+	  },
 
 	  //return minutes and seconds in seperate functions
 	  renderMinutes: function renderMinutes() {},
@@ -24792,23 +24815,29 @@
 
 	  resetTimer: function resetTimer() {
 	    clearInterval(this.interval);
-	    this.setState({ secondsToElapse: 0 });
-	    this.start();
+	    //  this.setState({ secondsToElapse: 0 });
+	    if (this.state.secondsToElapse === 0) {
+	      clearInterval();
+	    }
 	  },
 
 	  tick: function tick() {
 	    this.setState({ secondsToElapse: this.state.secondsToElapse - 1 });
-	    // if (this.state.secondsRemaining <= 0) {
-	    //     clearInterval(this.interval);
-	    //   }
+	    if (this.state.secondsToElapse <= 0) {
+	      clearInterval(this.interval);
+	    }
 	  },
 
-	  start: function start() {
-	    this.interval = setInterval(this.tick, 1000);
+	  clearInterval: function clearInterval() {
+	    if (this.state.secondsRemaining === 0) {
+	      this.resetTimer();
+	    }
 	  },
 
-	  componentDidMount: function componentDidMount() {
-	    setTimeout(this.start, this.props.timeout);
+	  componentWillReceiveProps: function componentWillReceiveProps(newTimerOnProps) {
+	    if (newTimerOnProps.start === true) {
+	      this.startTimer();
+	    }
 	  },
 
 	  render: function render() {
@@ -24830,12 +24859,15 @@
 
 	'use strict';
 
+	var _reactRouter = __webpack_require__(1);
+
 	var React = __webpack_require__(24);
+
 
 	var Welcomepage = React.createClass({
 	  displayName: 'Welcomepage',
 	  takeTest: function takeTest() {
-	    this.props.history.push('/take-test');
+	    _reactRouter.browserHistory.push('/take-test');
 	  },
 
 
