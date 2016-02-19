@@ -52,10 +52,18 @@
 
 	var _taketest2 = _interopRequireDefault(_taketest);
 
+	var _welcomepage = __webpack_require__(217);
+
+	var _welcomepage2 = _interopRequireDefault(_welcomepage);
+
+	var _ = __webpack_require__(218);
+
+	var _2 = _interopRequireDefault(_);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(24);
-	var ReactDOM = __webpack_require__(217);
+	var ReactDOM = __webpack_require__(219);
 
 	//components
 
@@ -63,10 +71,16 @@
 	  displayName: 'App',
 
 	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(_taketest2.default, null)
+	    return(
+	      //routing different components to URLS that we choose
+	      React.createElement(
+	        _reactRouter.Router,
+	        { history: _reactRouter.browserHistory },
+	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcome-page' }),
+	        React.createElement(_reactRouter.Route, { path: 'welcome-page', component: _welcomepage2.default }),
+	        React.createElement(_reactRouter.Route, { path: '/mars-test', component: _taketest2.default }),
+	        React.createElement(_reactRouter.Route, { path: '*', component: _2.default })
+	      )
 	    );
 	  }
 	});
@@ -24748,7 +24762,7 @@
 	        ),
 	        React.createElement(
 	          'button',
-	          { className: 'testbutton' },
+	          { className: 'testbutton', onClick: this.startTimer },
 	          React.createElement(
 	            'span',
 	            null,
@@ -24792,7 +24806,7 @@
 	  },
 
 	  tick: function tick() {
-	    this.setState({ secondsToElapse: this.state.secondsElapsed - 1 });
+	    this.setState({ secondsToElapse: this.state.secondsToElapse - 1 });
 	  },
 
 	  start: function start() {
@@ -24808,7 +24822,7 @@
 	      'div',
 	      { className: 'timer' },
 	      '00:',
-	      this.state.secondsElapsed
+	      this.state.secondsToElapse
 	    );
 	  }
 
@@ -24818,6 +24832,91 @@
 
 /***/ },
 /* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(24);
+
+	var Welcomepage = React.createClass({
+	  displayName: 'Welcomepage',
+
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'landingpage' },
+	      React.createElement(
+	        'header',
+	        { className: 'sider' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          'MARS'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'rocketicon' },
+	          React.createElement('i', { className: 'fa fa-space-shuttle' })
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'main' },
+	        React.createElement(
+	          'button',
+	          { className: 'testbutton' },
+	          React.createElement(
+	            'span',
+	            null,
+	            'TAKE TEST'
+	          )
+	        ),
+	        React.createElement(
+	          'button',
+	          { className: 'testbutton', onClick: this.startTimer },
+	          React.createElement(
+	            'span',
+	            null,
+	            'BEGIN EVALUATION'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Welcomepage;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(24);
+
+	var Notfound = React.createClass({
+	  displayName: 'Notfound',
+
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'p',
+	        null,
+	        ' Error. 404/ Page Not Found. '
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Notfound;
+
+/***/ },
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

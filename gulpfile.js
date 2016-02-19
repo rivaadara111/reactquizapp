@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
 var webpack = require('webpack-stream');
+var historyApiFallback = require('connect-history-api-fallback');
 
 
 gulp.task('sass', function() {
@@ -45,14 +46,23 @@ gulp.task('compile-react', function() {
 		.pipe(gulp.dest('./js'));
 });
 
+gulp.task('copy-html', function(){
+  gulp.src('./index.html')
+  .pipe(gulp.dest('./build'));
+});
+
 gulp.task('browser-sync', ['compile-react'], function() {
 
 	browserSync.init({
-		server: './'
+		server:{
+    baseDir: './',
+    middleware: [historyApiFallback()]
+    }
 	});
 
 	gulp.watch(['./js/main.jsx'], ['compile-react']);
 	gulp.watch(['./js/main.js','./css/style.css','./build/css/style.min.css', 'index.html', 'compile-react'] ).on('change', browserSync.reload);
+  gulp.watch(['index.html'], ['copy-html']);
   gulp.watch('./sass/*.scss', ['sass']);
   });
 

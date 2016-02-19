@@ -18,7 +18,6 @@ var Taketest = React.createClass({
 
     <div className='main'>
       <div className='timercontainer'><Timer /></div>
-      <button className='testbutton'><span>TAKE TEST</span></button>
       <button className='testbutton' onClick={this.startTimer}><span>BEGIN EVALUATION</span></button>
     </div>
 
