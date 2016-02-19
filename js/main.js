@@ -78,7 +78,7 @@
 	        { history: _reactRouter.browserHistory },
 	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcome-page' }),
 	        React.createElement(_reactRouter.Route, { path: 'welcome-page', component: _welcomepage2.default }),
-	        React.createElement(_reactRouter.Route, { path: '/mars-test', component: _taketest2.default }),
+	        React.createElement(_reactRouter.Route, { path: '/take-test', component: _taketest2.default }),
 	        React.createElement(_reactRouter.Route, { path: '*', component: _2.default })
 	      )
 	    );
@@ -24753,16 +24753,7 @@
 	        ),
 	        React.createElement(
 	          'button',
-	          { className: 'testbutton' },
-	          React.createElement(
-	            'span',
-	            null,
-	            'TAKE TEST'
-	          )
-	        ),
-	        React.createElement(
-	          'button',
-	          { className: 'testbutton', onClick: this.startTimer },
+	          { className: 'testbutton', onClick: this.timer },
 	          React.createElement(
 	            'span',
 	            null,
@@ -24807,6 +24798,9 @@
 
 	  tick: function tick() {
 	    this.setState({ secondsToElapse: this.state.secondsToElapse - 1 });
+	    // if (this.state.secondsRemaining <= 0) {
+	    //     clearInterval(this.interval);
+	    //   }
 	  },
 
 	  start: function start() {
@@ -24840,6 +24834,9 @@
 
 	var Welcomepage = React.createClass({
 	  displayName: 'Welcomepage',
+	  takeTest: function takeTest() {
+	    this.props.history.push('/take-test');
+	  },
 
 
 	  render: function render() {
@@ -24865,20 +24862,11 @@
 	        { className: 'main' },
 	        React.createElement(
 	          'button',
-	          { className: 'testbutton' },
+	          { className: 'testbutton', onClick: this.takeTest },
 	          React.createElement(
 	            'span',
 	            null,
 	            'TAKE TEST'
-	          )
-	        ),
-	        React.createElement(
-	          'button',
-	          { className: 'testbutton', onClick: this.startTimer },
-	          React.createElement(
-	            'span',
-	            null,
-	            'BEGIN EVALUATION'
 	          )
 	        )
 	      )

@@ -25,6 +25,9 @@ var Timer = React.createClass({
 
   tick: function(){
   this.setState({secondsToElapse: this.state.secondsToElapse - 1 });
+  // if (this.state.secondsRemaining <= 0) {
+  //     clearInterval(this.interval);
+  //   }
   },
 
   start: function(){

@@ -3,7 +3,7 @@ var React = require('react');
 var Welcomepage = React.createClass({
 
   takeTest(){
-    this.props.history.push('/mars-test');
+    this.props.history.push('/take-test');
   },
 
   render: function(){
@@ -19,6 +19,7 @@ var Welcomepage = React.createClass({
 
         <div className='main'>
           <button className='testbutton' onClick={this.takeTest}><span>TAKE TEST</span></button>
+
         </div>
 
 

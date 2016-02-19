@@ -14,7 +14,7 @@ var App = React.createClass({
     <Router history={browserHistory}>
       <Redirect from='/' to='/welcome-page'/>
       <Route path='welcome-page' component={Welcomepage}/>
-      <Route path='/mars-test' component={Taketest}/>
+      <Route path='/take-test' component={Taketest}/>
       <Route path='*' component={NotFound}/>
     </Router>
 
