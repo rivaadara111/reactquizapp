@@ -24730,7 +24730,7 @@
 	  },
 
 
-	  //trying to tell browser to start timer at the same time
+	  //telling browser to start timer when state of startTimer via clicked button is set to true
 	  tellTimerToStart: function tellTimerToStart() {
 	    this.setState({ startTimer: true });
 	  },
