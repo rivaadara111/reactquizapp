@@ -7,19 +7,9 @@ var Timer = React.createClass({
       secondsToElapse:  60
     }
   },
-  //
+
   startTimer: function(){
       this.interval = setInterval(this.tick, 1000);
-  //  this.startTimer();
-  },
-
-  //return minutes and seconds in seperate functions
-  renderMinutes: function(){
-
-  },
-
-  renderSeconds: function(){
-
   },
 
   resetTimer: function(){
@@ -42,15 +32,19 @@ var Timer = React.createClass({
     }
   },
 
-  componentWillReceiveProps: function(newTimerOnProps) {
-    if(newTimerOnProps.start === true) {
+  componentWillReceiveProps: function(newStartProps) {
+    if(newStartProps.start === true) {
       this.startTimer();
     }
   },
 
+  slideTimer: function(){
+  return this.props.start ? "timer" : "timer hidden"
+  },
+
   render: function(){
     return (
-      <div className='timer'>
+      <div className={this.slideTimer()}>
         00:{this.state.secondsToElapse}
       </div>
     )
@@ -59,3 +53,12 @@ var Timer = React.createClass({
 });
 
 module.exports = Timer;
+
+//return minutes and seconds in seperate functions
+// renderMinutes: function(){
+//
+// },
+//
+// renderSeconds: function(){
+//
+// },

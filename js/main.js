@@ -24789,12 +24789,12 @@
 /* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(24);
 
 	var Timer = React.createClass({
-	  displayName: 'Timer',
+	  displayName: "Timer",
 
 
 	  getInitialState: function getInitialState() {
@@ -24802,16 +24802,10 @@
 	      secondsToElapse: 60
 	    };
 	  },
-	  //
+
 	  startTimer: function startTimer() {
 	    this.interval = setInterval(this.tick, 1000);
-	    //  this.startTimer();
 	  },
-
-	  //return minutes and seconds in seperate functions
-	  renderMinutes: function renderMinutes() {},
-
-	  renderSeconds: function renderSeconds() {},
 
 	  resetTimer: function resetTimer() {
 	    clearInterval(this.interval);
@@ -24834,17 +24828,21 @@
 	    }
 	  },
 
-	  componentWillReceiveProps: function componentWillReceiveProps(newTimerOnProps) {
-	    if (newTimerOnProps.start === true) {
+	  componentWillReceiveProps: function componentWillReceiveProps(newStartProps) {
+	    if (newStartProps.start === true) {
 	      this.startTimer();
 	    }
 	  },
 
+	  slideTimer: function slideTimer() {
+	    return this.props.start ? "timer" : "timer hidden";
+	  },
+
 	  render: function render() {
 	    return React.createElement(
-	      'div',
-	      { className: 'timer' },
-	      '00:',
+	      "div",
+	      { className: this.slideTimer() },
+	      "00:",
 	      this.state.secondsToElapse
 	    );
 	  }
@@ -24852,6 +24850,15 @@
 	});
 
 	module.exports = Timer;
+
+	//return minutes and seconds in seperate functions
+	// renderMinutes: function(){
+	//
+	// },
+	//
+	// renderSeconds: function(){
+	//
+	// },
 
 /***/ },
 /* 217 */

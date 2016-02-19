@@ -34,7 +34,6 @@ var Taketest = React.createClass({
         <Timer start={this.state.startTimer}/></div>
       { !this.state.startTimer ? <button className='testbutton' onClick={this.tellTimerToStart}><span>BEGIN EVALUATION</span></button>: ''}
     </div>
-
     </div>
 /*//Macs solution
 <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
