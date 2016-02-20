@@ -147,17 +147,13 @@ html, body {
   z-index: 1;
 }
 
-  .timercontainer{
-  /*position: absolute;
-  overflow: hidden;*/
-  }
+/*TIMER-----------------------------*/
 
   .timer{
   font-family:'digital-7regular', sans-serif;
   font-size: 3rem;
   font-weight: bolder;
   color: black;
-  /*text-align: left;*/
   margin: 1rem 0 5rem 25rem;
   padding: .5rem;
   overflow: hidden;
@@ -177,7 +173,28 @@ html, body {
     opacity: 0;
     }
 
-
+/*FORM------------------------*/
+  .questionpane{
+  height: 30vh;
+  width: 50vw;
+  background-color: #EDF1F2;
+  border: 2px solid white;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  font-family:'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: black;
+  padding:1rem;
+  }
+input{
+  line-height: 2rem;
+  font-size: 1rem;
+  width: 90%;
+  outline: none;
+  cursor: darkgrey;
+  padding-left: .5rem;
+}
 /*----------------MEDIA QUERY-----------------------------*/
 @media only screen and (min-width: 640px) {
 
@@ -251,7 +268,6 @@ html, body {
     text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
     }
 
-
   i.fa-space-shuttle {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
@@ -262,7 +278,6 @@ html, body {
    }
 
 }
-/*timer*---------------------------------------*/
 
 
 /********************mobile css*****************************************/

@@ -8,6 +8,7 @@ import Welcomepage from './components/welcomepage.jsx';
 import NotFound from './components/404.jsx';
 import Accepted from './components/accepted.jsx';
 import Rejected from './components/rejected.jsx';
+import Questionpane from './components/questionpane.jsx';
 
 var App = React.createClass({
   render: function(){
@@ -17,6 +18,7 @@ var App = React.createClass({
       <Redirect from='/' to='/welcomepage'/>
       <Route path='welcomepage' component={Welcomepage}/>
       <Route path='take-test' component={Taketest}/>
+      <Route path='question-pane' component={Questionpane}/>
       <Route path='accepted' component={Accepted}/>
       <Route path='rejected' component={Rejected}/>
       <Route path='*' component={NotFound}/>

@@ -52,26 +52,30 @@
 
 	var _taketest2 = _interopRequireDefault(_taketest);
 
-	var _welcomepage = __webpack_require__(217);
+	var _welcomepage = __webpack_require__(218);
 
 	var _welcomepage2 = _interopRequireDefault(_welcomepage);
 
-	var _ = __webpack_require__(218);
+	var _ = __webpack_require__(219);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _accepted = __webpack_require__(219);
+	var _accepted = __webpack_require__(220);
 
 	var _accepted2 = _interopRequireDefault(_accepted);
 
-	var _rejected = __webpack_require__(220);
+	var _rejected = __webpack_require__(221);
 
 	var _rejected2 = _interopRequireDefault(_rejected);
+
+	var _questionpane = __webpack_require__(217);
+
+	var _questionpane2 = _interopRequireDefault(_questionpane);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(24);
-	var ReactDOM = __webpack_require__(221);
+	var ReactDOM = __webpack_require__(222);
 
 	//components
 
@@ -87,6 +91,7 @@
 	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcomepage' }),
 	        React.createElement(_reactRouter.Route, { path: 'welcomepage', component: _welcomepage2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'take-test', component: _taketest2.default }),
+	        React.createElement(_reactRouter.Route, { path: 'question-pane', component: _questionpane2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'accepted', component: _accepted2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'rejected', component: _rejected2.default }),
 	        React.createElement(_reactRouter.Route, { path: '*', component: _2.default })
@@ -24726,6 +24731,10 @@
 
 	var _timer2 = _interopRequireDefault(_timer);
 
+	var _questionpane = __webpack_require__(217);
+
+	var _questionpane2 = _interopRequireDefault(_questionpane);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(24);
@@ -24746,22 +24755,14 @@
 	  getInitialState: function getInitialState() {
 	    return {
 	      startTimer: false,
-	      showQuestions: false,
-	      input: '',
-	      questions: ['helloooo', 'hi', 'sup']
+	      showQuestions: false
 	    };
 	  },
 
 
 	  //telling browser to start timer when state of startTimer via clicked button is set to true
 	  tellTimerToStart: function tellTimerToStart() {
-	    this.setState({ startTimer: true }, { showQuestions: true });
-	  },
-	  //defining questions object
-	  generateQuestion: function generateQuestion() {
-	    return this.state.questions[0];
-	    return this.state.questions[1];
-	    return this.state.questions[2];
+	    this.setState({ startTimer: true });
 	  },
 
 	  // finishTest function to be written HERE to render accepted or rejected page using if/else statement
@@ -24794,23 +24795,15 @@
 	        ),
 	        !this.state.startTimer ? React.createElement(
 	          'button',
-	          { className: 'testbutton', onClick: this.tellTimerToStart },
+	          { className: 'testbutton',
+	            onClick: this.tellTimerToStart },
 	          React.createElement(
 	            'span',
 	            null,
 	            'BEGIN EVALUATION'
 	          )
 	        ) : '',
-	        React.createElement(
-	          'form',
-	          { className: 'questionpane' },
-	          React.createElement(
-	            'p',
-	            null,
-	            this.generateQuestion()
-	          ),
-	          React.createElement('input', { type: 'text', placeholder: 'enter answer here' })
-	        )
+	        !this.state.startTimer ? '' : React.createElement(_questionpane2.default, null)
 	      )
 	    )
 
@@ -24913,6 +24906,48 @@
 	var React = __webpack_require__(24);
 
 
+	var Questionpane = React.createClass({
+	  displayName: 'Questionpane',
+
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      input: '',
+	      questions: ['   What is the meaning of life? ', '  Why? ', '  Whats the answer to the universe?']
+	    };
+	  },
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'main' },
+	      React.createElement(
+	        'form',
+	        { className: 'questionpane' },
+	        React.createElement(
+	          'p',
+	          null,
+	          this.state.questions[0]
+	        ),
+	        React.createElement('input', { type: 'text', placeholder: '  enter answer here' })
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Questionpane;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _reactRouter = __webpack_require__(1);
+
+	var React = __webpack_require__(24);
+
+
 	var Welcomepage = React.createClass({
 	  displayName: 'Welcomepage',
 	  takeTest: function takeTest() {
@@ -24958,7 +24993,7 @@
 	module.exports = Welcomepage;
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24985,7 +25020,7 @@
 	module.exports = Notfound;
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25038,7 +25073,7 @@
 	module.exports = Accepted;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25091,7 +25126,7 @@
 	module.exports = Rejected;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
