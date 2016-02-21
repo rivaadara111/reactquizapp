@@ -52,19 +52,19 @@
 
 	var _taketest2 = _interopRequireDefault(_taketest);
 
-	var _welcomepage = __webpack_require__(218);
+	var _welcomepage = __webpack_require__(219);
 
 	var _welcomepage2 = _interopRequireDefault(_welcomepage);
 
-	var _ = __webpack_require__(219);
+	var _ = __webpack_require__(220);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _accepted = __webpack_require__(220);
+	var _accepted = __webpack_require__(221);
 
 	var _accepted2 = _interopRequireDefault(_accepted);
 
-	var _rejected = __webpack_require__(221);
+	var _rejected = __webpack_require__(222);
 
 	var _rejected2 = _interopRequireDefault(_rejected);
 
@@ -75,7 +75,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(24);
-	var ReactDOM = __webpack_require__(222);
+	var ReactDOM = __webpack_require__(223);
 
 	//components
 
@@ -24739,33 +24739,40 @@
 
 	var React = __webpack_require__(24);
 
-	// import Question screen from './components/question-screen.jsx';
+
+	var questions = [{
+	  question: '   What is the meaning of life? ',
+	  answer: true
+	}, {
+	  question: '  Why? Why? Tell em that its human nature',
+	  answer: true
+	}, {
+	  question: '  Whats the answer to the universe?',
+	  answer: true
+	}];
 
 	var Taketest = React.createClass({
 	  displayName: 'Taketest',
-
-
-	  //getting browserHistory to push new pages on TO BE DETERMINED onlick event
-	  Accepted: function Accepted() {
+	  getInitialState: function getInitialState() {
+	    startTimer: false;
+	  },
+	  _handleCorrect: function _handleCorrect() {
 	    _reactRouter.browserHistory.push('/accepted');
 	  },
-	  Rejected: function Rejected() {
+	  _handleFailure: function _handleFailure() {
 	    _reactRouter.browserHistory.push('/rejected');
 	  },
 	  getInitialState: function getInitialState() {
-	    return {
-	      startTimer: false,
-	      showQuestions: false
-	    };
+	    return { startTimer: false };
 	  },
 
 
-	  //telling browser to start timer when state of startTimer via clicked button is set to true
-	  tellTimerToStart: function tellTimerToStart() {
+	  //telling browser to start timer with state of startTimer when clicked button is set to true
+	  startQuiz: function startQuiz() {
 	    this.setState({ startTimer: true });
 	  },
 
-	  // finishTest function to be written HERE to render accepted or rejected page using if/else statement
+	  // finishTest function to be written HERE to render accepted or rejected page using if/else statement or logical not
 
 	  render: function render() {
 	    return React.createElement(
@@ -24791,23 +24798,23 @@
 	        React.createElement(
 	          'div',
 	          { className: 'timercontainer' },
-	          React.createElement(_timer2.default, { start: this.state.startTimer })
+	          React.createElement(_timer2.default, {
+	            initialStartTime: 10,
+	            onTimerFinished: this._handleFailure,
+	            startTimer: this.state.startTimer })
 	        ),
 	        !this.state.startTimer ? React.createElement(
 	          'button',
-	          { className: 'testbutton',
-	            onClick: this.tellTimerToStart },
+	          { className: 'testbutton', onClick: this.startQuiz },
 	          React.createElement(
 	            'span',
 	            null,
 	            'BEGIN EVALUATION'
 	          )
 	        ) : '',
-	        !this.state.startTimer ? '' : React.createElement(_questionpane2.default, null)
+	        !this.state.startTimer ? '' : React.createElement(_questionpane2.default, { onCorrect: this._handleCorrect, onFailure: this._handleFailure, questions: questions })
 	      )
 	    )
-
-	    //form event names: onChange, onInput, onSubmit
 
 	    /*//Macs solution
 	    <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
@@ -24824,76 +24831,57 @@
 /* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var React = __webpack_require__(24);
+	var _react = __webpack_require__(24);
 
-	var Timer = React.createClass({
-	  displayName: "Timer",
+	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(1);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Timer = _react2.default.createClass({
+	  displayName: 'Timer',
 	  getInitialState: function getInitialState() {
 	    return {
-	      secondsToElapse: 60
+	      secondsToElapse: this.props.initialStartTime
 	    };
 	  },
-
-	  startTimer: function startTimer() {
-	    this.interval = setInterval(this.tick, 1000);
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (nextProps.startTimer) this._startTimer();
 	  },
-
-	  resetTimer: function resetTimer() {
+	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+	    if (this.state.secondsToElapse === 0) this.props.onTimerFinished();
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
 	    clearInterval(this.interval);
-	    //  this.setState({ secondsToElapse: 0 });
-	    if (this.state.secondsToElapse === 0) {
-	      clearInterval();
-	    }
 	  },
-
-	  tick: function tick() {
+	  _decrementCounter: function _decrementCounter() {
 	    this.setState({ secondsToElapse: this.state.secondsToElapse - 1 });
-	    if (this.state.secondsToElapse <= 0) {
-	      clearInterval(this.interval);
-	    }
 	  },
-
-	  clearInterval: function clearInterval() {
-	    if (this.state.secondsRemaining === 0) {
-	      this.resetTimer();
-	    }
+	  _startTimer: function _startTimer() {
+	    this.interval = setInterval(this._decrementCounter, 1000);
 	  },
-
-	  componentWillReceiveProps: function componentWillReceiveProps(newStartProps) {
-	    if (newStartProps.start === true) {
-	      this.startTimer();
-	    }
-	  },
-
-	  slideTimer: function slideTimer() {
-	    return this.props.start ? "timer" : "timer hidden";
-	  },
-
 	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      { className: this.slideTimer() },
-	      "00:",
+	    return _react2.default.createElement(
+	      'div',
+	      { className: this.props.startTimer ? "timer" : "timer hidden" },
+	      '00:',
 	      this.state.secondsToElapse
 	    );
 	  }
-
 	});
+	Timer.propTypes = {
+	  initialStartTime: _react2.default.PropTypes.number.isRequired,
+	  startTimer: _react2.default.PropTypes.bool.isRequired,
+	  onTimerFinished: _react2.default.PropTypes.func.isRequired
+	};
+	Timer.defaultProps = {
+	  initialStartTime: 60
+	};
 
 	module.exports = Timer;
-
-	//return minutes and seconds in seperate functions
-	// renderMinutes: function(){
-	//
-	// },
-	//
-	// renderSeconds: function(){
-	//
-	// },
 
 /***/ },
 /* 217 */
@@ -24903,42 +24891,119 @@
 
 	var _reactRouter = __webpack_require__(1);
 
+	var _question = __webpack_require__(218);
+
+	var _question2 = _interopRequireDefault(_question);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	var React = __webpack_require__(24);
 
 
 	var Questionpane = React.createClass({
-	  displayName: 'Questionpane',
+		displayName: 'Questionpane',
 
 
-	  getInitialState: function getInitialState() {
-	    return {
-	      input: '',
-	      questions: ['   What is the meaning of life? ', '  Why? ', '  Whats the answer to the universe?']
-	    };
-	  },
+		getInitialState: function getInitialState() {
+			return {
+				correctCount: 0,
+				questionIndex: 0
+			};
+		},
 
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { className: 'main' },
-	      React.createElement(
-	        'form',
-	        { className: 'questionpane' },
-	        React.createElement(
-	          'p',
-	          null,
-	          this.state.questions[0]
-	        ),
-	        React.createElement('input', { type: 'text', placeholder: '  enter answer here' })
-	      )
-	    );
-	  }
+		componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
+			if (nextState.questionIndex === nextProps.questions.length) {
+				this.state.correctCount === 2 ? this.props.onCorrect() : this.props.onFailure();
+			}
+		},
+		render: function render() {
+			return React.createElement(
+				'div',
+				{ className: 'main' },
+				React.createElement(_question2.default, {
+					currentQuestion: this.props.questions[this.state.questionIndex],
+					onAnswer: this._handleUserAnswer })
+			);
+		},
+		_handleUserAnswer: function _handleUserAnswer(userAnswer) {
+			var correctAnswer = this.props.questions[this.state.questionIndex].answer;
+			var currentCorrectCount = this.state.correctCount;
+
+			if (correctAnswer === userAnswer) {
+				currentCorrectCount = currentCorrectCount + 1;
+			}
+
+			this.setState({
+				correctCount: currentCorrectCount,
+				questionIndex: this.state.questionIndex + 1
+			});
+		}
 	});
+
+	Questionpane.propTypes = {
+		questions: React.PropTypes.arrayOf(React.PropTypes.shape({
+			question: React.PropTypes.string.isRequired,
+			answer: React.PropTypes.bool.isRequired
+		}).isRequired).isRequired
+	};
 
 	module.exports = Questionpane;
 
 /***/ },
 /* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(24);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Question = _react2.default.createClass({
+	  displayName: 'Question',
+	  _handleTrue: function _handleTrue() {
+	    this.props.onAnswer(true);
+	  },
+	  render: function render() {
+	    var _this = this;
+
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        this.props.currentQuestion.question
+	      ),
+	      _react2.default.createElement(
+	        'button',
+	        { onClick: this._handleTrue },
+	        'True'
+	      ),
+	      _react2.default.createElement(
+	        'button',
+	        { onClick: function onClick() {
+	            return _this.props.onAnswer(false);
+	          } },
+	        'False'
+	      )
+	    );
+	  }
+	});
+	Question.propTypes = {
+	  currentQuestion: _react2.default.PropTypes.shape({
+	    question: _react2.default.PropTypes.string.isRequired,
+	    answer: _react2.default.PropTypes.bool.isRequired
+	  }).isRequired,
+	  onAnswer: _react2.default.PropTypes.func.isRequired
+	};
+
+	module.exports = Question;
+
+/***/ },
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24950,11 +25015,9 @@
 
 	var Welcomepage = React.createClass({
 	  displayName: 'Welcomepage',
-	  takeTest: function takeTest() {
+	  _handleTakeTest: function _handleTakeTest() {
 	    _reactRouter.browserHistory.push('/take-test');
 	  },
-
-
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -24978,7 +25041,7 @@
 	        { className: 'main' },
 	        React.createElement(
 	          'button',
-	          { className: 'testbutton', onClick: this.takeTest },
+	          { className: 'testbutton', onClick: this._handleTakeTest },
 	          React.createElement(
 	            'span',
 	            null,
@@ -24993,7 +25056,7 @@
 	module.exports = Welcomepage;
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25020,7 +25083,7 @@
 	module.exports = Notfound;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25073,7 +25136,7 @@
 	module.exports = Accepted;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25113,6 +25176,7 @@
 	          null,
 	          'REJECTED'
 	        ),
+	        React.createElement('i', { className: 'fa fa-space-shuttle' }),
 	        React.createElement(
 	          'p',
 	          null,
@@ -25126,7 +25190,7 @@
 	module.exports = Rejected;
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

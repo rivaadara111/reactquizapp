@@ -1,34 +1,51 @@
 var React = require('react');
 import {browserHistory} from 'react-router';
+
 import Timer from './timer.jsx';
 import Questionpane from './questionpane.jsx';
-// import Question screen from './components/question-screen.jsx';
+
+var questions = [
+ 	{
+		question:'   What is the meaning of life? ',
+		answer: true
+	},
+		{
+		question:'  Why? Why? Tell em that its human nature',
+		answer: true
+	},
+	{
+		question:'  Whats the answer to the universe?',
+		answer: true
+	}
+];
+
 
 var Taketest = React.createClass({
 
-//getting browserHistory to push new pages on TO BE DETERMINED onlick event
-  Accepted(){
+  getInitialState() {
+    startTimer: false
+  },
+
+  _handleCorrect() {
     browserHistory.push('/accepted');
   },
-  Rejected(){
+
+  _handleFailure() {
     browserHistory.push('/rejected');
   },
 
   getInitialState(){
-    return {
-      startTimer: false,
-      showQuestions: false,
-    }
+    return {startTimer: false};
   },
 
-//telling browser to start timer when state of startTimer via clicked button is set to true
-  tellTimerToStart: function(){
+//telling browser to start timer with state of startTimer when clicked button is set to true
+  startQuiz: function(){
     this.setState({startTimer: true});
   },
 
-  // finishTest function to be written HERE to render accepted or rejected page using if/else statement
+  // finishTest function to be written HERE to render accepted or rejected page using if/else statement or logical not
 
-  render: function(){
+  render() {
     return (
   <div className='landingpage'>
 
@@ -42,15 +59,17 @@ var Taketest = React.createClass({
     <div className='main'>
 
       <div className='timercontainer'>
-        <Timer start={this.state.startTimer}/></div>
-      { !this.state.startTimer ? <button className='testbutton'
-      onClick={this.tellTimerToStart}><span>BEGIN EVALUATION</span></button>: ''}
-    { !this.state.startTimer ? '' : <Questionpane />}
+        <Timer
+          initialStartTime={10}
+          onTimerFinished={this._handleFailure}
+          startTimer={this.state.startTimer}/>
+      </div>
+      { !this.state.startTimer ? <button className='testbutton' onClick={this.startQuiz}><span>BEGIN EVALUATION</span></button>: ''}
+      { !this.state.startTimer ? '' : <Questionpane onCorrect={this._handleCorrect} onFailure={this._handleFailure} questions={questions}/>}
+
     </div>
 
   </div>
-
-//form event names: onChange, onInput, onSubmit
 
 /*//Macs solution
 <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>

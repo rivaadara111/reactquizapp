@@ -1,64 +1,50 @@
-var React = require('react');
+import React from 'react';
+import {browserHistory} from 'react-router';
 
 var Timer = React.createClass({
 
-  getInitialState: function(){
+  getInitialState(){
     return {
-      secondsToElapse:  60
-    }
+      secondsToElapse: this.props.initialStartTime
+    };
   },
 
-  startTimer: function(){
-      this.interval = setInterval(this.tick, 1000);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.startTimer) this._startTimer();
   },
 
-  resetTimer: function(){
-   clearInterval(this.interval);
-  //  this.setState({ secondsToElapse: 0 });
-   if (this.state.secondsToElapse === 0){
-    clearInterval()}
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.secondsToElapse === 0) this.props.onTimerFinished();
   },
 
-  tick: function(){
-  this.setState({secondsToElapse: this.state.secondsToElapse - 1 });
-  if (this.state.secondsToElapse <= 0) {
-  clearInterval(this.interval);
-    }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   },
 
-  clearInterval: function(){
-  if(this.state.secondsRemaining === 0){
-    this.resetTimer();
-    }
+  _decrementCounter() {
+    this.setState({secondsToElapse: this.state.secondsToElapse - 1});
   },
 
-  componentWillReceiveProps: function(newStartProps) {
-    if(newStartProps.start === true) {
-      this.startTimer();
-    }
+  _startTimer(){
+    this.interval = setInterval(this._decrementCounter, 1000);
   },
 
-  slideTimer: function(){
-  return this.props.start ? "timer" : "timer hidden"
-  },
-
-  render: function(){
+  render(){
     return (
-      <div className={this.slideTimer()}>
+      <div className={this.props.startTimer ? "timer" : "timer hidden"}>
         00:{this.state.secondsToElapse}
       </div>
     )
- },
+  },
 
 });
+Timer.propTypes = {
+  initialStartTime: React.PropTypes.number.isRequired,
+  startTimer: React.PropTypes.bool.isRequired,
+  onTimerFinished: React.PropTypes.func.isRequired
+};
+Timer.defaultProps = {
+  initialStartTime: 60
+};
 
 module.exports = Timer;
-
-//return minutes and seconds in seperate functions
-// renderMinutes: function(){
-//
-// },
-//
-// renderSeconds: function(){
-//
-// },

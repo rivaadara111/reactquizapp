@@ -3,11 +3,11 @@ import {browserHistory} from 'react-router';
 
 var Welcomepage = React.createClass({
 
-  takeTest(){
+  _handleTakeTest(){
     browserHistory.push('/take-test');
   },
 
-  render: function(){
+  render(){
     return (
       <div className='landingpage'>
 
@@ -19,8 +19,7 @@ var Welcomepage = React.createClass({
         </header>
 
         <div className='main'>
-          <button className='testbutton' onClick={this.takeTest}><span>TAKE TEST</span></button>
-
+          <button className='testbutton' onClick={this._handleTakeTest}><span>TAKE TEST</span></button>
         </div>
 
 

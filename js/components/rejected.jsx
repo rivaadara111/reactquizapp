@@ -16,6 +16,7 @@ var Rejected = React.createClass({
 
         <div className='main'>
           <h2>REJECTED</h2>
+          <i className='fa fa-space-shuttle'></i>
           <p>We regret to inform you that you are not good enough to colonize mars. Choke smog and die, sucker!!</p>
         </div>
 
