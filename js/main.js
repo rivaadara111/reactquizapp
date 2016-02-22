@@ -24747,7 +24747,7 @@
 	  answer: true
 	}, {
 	  question: '  The sun is yellow.',
-	  answer: true
+	  answer: false
 	}];
 
 	var Taketest = React.createClass({
@@ -25205,11 +25205,6 @@
 	            'h2',
 	            null,
 	            'REJECTED'
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'rocketlaunch' },
-	            React.createElement('i', { className: 'fa fa-space-shuttle' })
 	          ),
 	          React.createElement(
 	            'h4',

@@ -15,7 +15,7 @@ var questions = [
 	},
 	{
 		question:'  The sun is yellow.',
-		answer: true
+		answer: false
 	}
 ];
 
