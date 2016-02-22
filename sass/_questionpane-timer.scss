@@ -1,0 +1,79 @@
+/*TIMER-----------------------------*/
+
+.timer {
+  font-family: 'digital-7regular', sans-serif;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: black;
+  margin: 1rem 0 5rem 25rem;
+  padding: .5rem;
+  overflow: hidden;
+  background-color: #EDF1F2;
+  border: 2px solid white;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 4px 12px #000000;
+  position: absolute;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  right: 1rem;
+  top: 1rem;
+}
+
+.hidden {
+  right: -1000px;
+  opacity: 0;
+}
+
+/*FORM------------------------*/
+
+.questionpane {
+  height: 26vh;
+  width: 50vw;
+  background: rgb(222, 226, 226);
+  /* Old browsers */
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(222, 226, 226, 1) 0%, rgba(237, 241, 242, 1) 27%, rgba(237, 241, 242, 1) 33%, rgba(214, 218, 219, 1) 82%, rgba(214, 218, 219, 1) 82%, rgba(214, 219, 219, 1) 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-radial-gradient(center ellipse, rgba(222, 226, 226, 1) 0%, rgba(237, 241, 242, 1) 27%, rgba(237, 241, 242, 1) 33%, rgba(214, 218, 219, 1) 82%, rgba(214, 218, 219, 1) 82%, rgba(214, 219, 219, 1) 99%);
+  background: radial-gradient(ellipse at center, rgba(222, 226, 226, 1) 0%, rgba(237, 241, 242, 1) 27%, rgba(237, 241, 242, 1) 33%, rgba(214, 218, 219, 1) 82%, rgba(214, 218, 219, 1) 82%, rgba(214, 219, 219, 1) 99%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border: 2px solid white;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: black;
+  padding: 1rem;
+  p {
+    text-align: center;
+  }
+}
+
+.buttons {
+  text-align: center;
+  button {
+    outline: none;
+    border: 2px solid white;
+    background-color: #EDF1F2;
+    padding: .5rem 2rem;
+    border-radius: 1px;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    &:hover {
+      background-color: #EDF1F2;
+      border-color: black;
+    }
+    span {
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+  }
+}

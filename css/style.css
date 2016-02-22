@@ -1,346 +1,472 @@
 /*css reset*/
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
 
+*/ html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
 body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
-
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
 table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 * {
-  box-sizing: border-box; }
-
+    box-sizing: border-box;
+}
 /*----------------------------FONTS---------------------*/
 
-  @font-face {
-      font-family: 'digital-7regular';
-      src: url('.././fonts/digital-7-webfont.eot');
-      src: url('.././fonts/digital-7-webfont.eot?#iefix') format('embedded-opentype'),
-           url('.././fonts/digital-7-webfont.woff2') format('woff2'),
-           url('.././fonts/digital-7-webfont.woff') format('woff'),
-           url('.././fonts/digital-7-webfont.ttf') format('truetype'),
-           url('.././fonts/digital-7-webfont.svg#digital-7regular') format('svg');
-      font-weight: normal;
-      font-style: normal;
-  }
-
+@font-face {
+    font-family: 'digital-7regular';
+    src: url('.././fonts/digital-7-webfont.eot');
+    src: url('.././fonts/digital-7-webfont.eot?#iefix') format('embedded-opentype'), url('.././fonts/digital-7-webfont.woff2') format('woff2'), url('.././fonts/digital-7-webfont.woff') format('woff'), url('.././fonts/digital-7-webfont.ttf') format('truetype'), url('.././fonts/digital-7-webfont.svg#digital-7regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 /*page CSS************************/
-html, body {
-  color: #222;
-  font-family: 'Arial', sans-serif;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  }
 
-.landingpage{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-/*mobile first sider css----------------*/
-.sider{
-  width: 0px;
-}
-
-/*-----------------.MAIN DIV CSS--------------*/
-.main{
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 80%;
-      -ms-flex: 1 0 80%;
-          flex: 1 0 80%;
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-      -ms-flex-order: 2;
-          order: 2;
-  background: url('../images/red-planet-mars-wallpaper-3.jpg') no-repeat;
-  background-size: cover;
-  /*background: -webkit-linear-gradient(left, #fd746c, #ff9068);
-  background: linear-gradient(to right, #fd746c, #ff9068);*/
-  height:100vh;
-  width: 100%;
-  margin:0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.testbutton {
-  outline: none;
-  border: 2px solid white;
-  background-color: #EDF1F2;
-  padding: 1rem 4rem;
-  border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  margin: 1rem;
-  }
-
-.testbutton:hover {
-    cursor: pointer;
-    background-color: grey;
-
-    }
-  }
-
-.testbutton:active {
-    box-shadow: 0 10px 20px transparent;
-  }
-
-  .testbutton span{
-  color: black;
-  font-weight: bold;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  z-index: 1;
-}
-
-/*TIMER-----------------------------*/
-
-  .timer{
-  font-family:'digital-7regular', sans-serif;
-  font-size: 3rem;
-  font-weight: bolder;
-  color: black;
-  margin: 1rem 0 5rem 25rem;
-  padding: .5rem;
-  overflow: hidden;
-  background-color: #EDF1F2;
-  border: 2px solid white;
-  border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  text-shadow:1px 4px 12px #000000;
-  position: absolute;
-  transition: all 0.5s ease-in-out;
-  opacity: 1;
-  right: 1rem;
-  top: 1rem;
-}
-  .hidden {
-    right: -1000px;
-    opacity: 0;
-    }
-
-/*FORM------------------------*/
-  .questionpane{
-  height: 30vh;
-  width: 50vw;
-  background-color: #EDF1F2;
-  border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  font-family:'Arial', sans-serif;
-  font-size: 1rem;
-  font-weight: bolder;
-  color: black;
-  padding:1rem;
-  }
-/*input{
-  line-height: 2rem;
-  font-size: 1rem;
-  width: 90%;
-  outline: none;
-  cursor: darkgrey;
-  padding-left: .5rem;
-}*/
-.buttons{
-  text-align: center;
-}
-.buttons button{
-  outline: none;
-  border: 2px solid white;
-  padding: .5rem 2rem;
-  border-radius: 1px;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-.buttons button:hover{
-  background-color: grey;
-
-}
-
-.buttons button span{
-  color: black;
-  font-weight: bold;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-}
-
-.msg-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.msg-container h2, h4 {
-  color: white;
-
-}
-
-.msg-container h2{
-  font-size: 150px;
-  letter-spacing: 2px;
-  text-align: center;
-  font-weight: bolder;
-}
-
-.msg-container h4{
-  text-align: center;
-  margin-bottom: 5rem;
-  width: 90%;
-  line-height: 2rem;
-  padding-bottom: 5rem;
-  letter-spacing: .1rem;
-}
-
-/*----------------MEDIA QUERY-----------------------------*/
-@media only screen and (min-width: 640px) {
-
-  .sider{
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 20%;
-        -ms-flex: 0 1 20%;
-            flex: 0 1 20%;
-    height: 100vh;
-    position: relative;
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    min-width: 150px;
-    max-width: 150px;
-    padding-left: .5rem;
-  }
-
-  h1{
-    color: black;
-    position: absolute;
-    -webkit-transform: translateX(-75px) rotate(270deg);
-            transform: translateX(-75px) rotate(270deg);
-    font-size: 100px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: -10px;
-    top: 35px;
-    color: #EDF1F2;
+html,
+body {
+    color: #222;
     font-family: 'Arial', sans-serif;
-    margin-right: .5rem;
-  }
-
-  .rocketicon {
-    margin-top: 1rem;
-    margin-right: .5rem;
-    font-size: 0.5rem;
-    letter-spacing: 0.5rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    width: 100px;
-    height: 100px;
-    line-height: 1rem;
-    border-radius: 50%;
-    background: #fd746c;
-    background: -webkit-linear-gradient(to top, #fd746c, #ff9068);
-    background: -webkit-linear-gradient(bottom, #fd746c, #ff9068);
-    background: linear-gradient(to top, #fd746c, #ff9068);
-    color: white;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.landingpage {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+/*mobile first sider css----------------*/
+
+.sider {
+    width: 0px;
+}
+/*-----------------.MAIN DIV CSS--------------*/
+
+.main {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 80%;
+    -ms-flex: 1 0 80%;
+    flex: 1 0 80%;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    background: url('../images/red-planet-mars-wallpaper-3.jpg') no-repeat;
+    background-size: cover;
+    /*background: -webkit-linear-gradient(left, #fd746c, #ff9068);
+  background: linear-gradient(to right, #fd746c, #ff9068);*/
+
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
-    }
-
-  i.fa-space-shuttle {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    font-size: 4rem;
-    position: relative;
-    left: -5px;
-    top: -4px;
-   }
-
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
+.testbutton {
+    outline: none;
+    border: 2px solid white;
+    background-color: #EDF1F2;
+    padding: 1rem 4rem;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+}
+.testbutton:hover {
+    cursor: pointer;
+    background-color: #c1ced2;
+}
+.testbutton:active {
+    box-shadow: 0 10px 20px transparent;
+}
+.testbutton span {
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    z-index: 1;
+}
+/*TIMER-----------------------------*/
 
+.timer {
+    font-family: 'digital-7regular', sans-serif;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: black;
+    margin: 1rem 0 5rem 25rem;
+    padding: .5rem;
+    overflow: hidden;
+    background-color: #EDF1F2;
+    border: 2px solid white;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 4px 12px #000000;
+    position: absolute;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    right: 1rem;
+    top: 1rem;
+}
+.hidden {
+    right: -1000px;
+    opacity: 0;
+}
+/*FORM------------------------*/
 
-/********************mobile css*****************************************/
-/*@media only screen and (min-width: 420px) {
+.questionpane {
+    height: 26vh;
+    width: 50vw;
+    background: rgb(222, 226, 226);
+    /* Old browsers */
+    /* FF3.6-15 */
 
-  .testbutton{
-  width: 80vw;
-  }
-}*/
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(222, 226, 226, 1) 0%, rgba(237, 241, 242, 1) 27%, rgba(237, 241, 242, 1) 33%, rgba(214, 218, 219, 1) 82%, rgba(214, 218, 219, 1) 82%, rgba(214, 219, 219, 1) 99%);
+    /* Chrome10-25,Safari5.1-6 */
+
+    background: -webkit-radial-gradient(center ellipse, rgba(222, 226, 226, 1) 0%, rgba(237, 241, 242, 1) 27%, rgba(237, 241, 242, 1) 33%, rgba(214, 218, 219, 1) 82%, rgba(214, 218, 219, 1) 82%, rgba(214, 219, 219, 1) 99%);
+    background: radial-gradient(ellipse at center, rgba(222, 226, 226, 1) 0%, rgba(237, 241, 242, 1) 27%, rgba(237, 241, 242, 1) 33%, rgba(214, 218, 219, 1) 82%, rgba(214, 218, 219, 1) 82%, rgba(214, 219, 219, 1) 99%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    border: 2px solid white;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: black;
+    padding: 1rem;
+}
+.questionpane p {
+    text-align: center;
+}
+.buttons {
+    text-align: center;
+}
+.buttons button {
+    outline: none;
+    border: 2px solid white;
+    background-color: #EDF1F2;
+    padding: .5rem 2rem;
+    border-radius: 1px;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.buttons button:hover {
+    background-color: #EDF1F2;
+    border-color: black;
+}
+.buttons button span {
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+/*ACCEPTED REJECTED PAGES------------------------------------*/
+
+.msg-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 80vh
+}
+.msg-container h2,
+h4 {
+    color: white;
+}
+@-webkit-keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.msg-container h2 {
+    font-size: 150px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: bolder;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
+}
+.msg-container h4 {
+    text-align: center;
+    margin-bottom: 5rem;
+    width: 90%;
+    line-height: 2rem;
+    padding-bottom: 5rem;
+    letter-spacing: .1rem;
+}
+@-webkit-keyframes launch {
+    0% {
+        top: 700px;
+    }
+    100% {
+        top: -1500px;
+    }
+}
+@keyframes launch {
+    0% {
+        top: 700px;
+    }
+    100% {
+        top: -1500px;
+    }
+}
+.rocketlaunch {
+    font-size: 200px;
+    position: relative;
+    -webkit-animation: launch 4s ease-in;
+    animation: launch 4s ease-in;
+    top: -800px;
+    float: left;
+}
+.rocketlaunch i {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: white;
+    font-size: 200px;
+}
+/*----------------MEDIA QUERY-----------------------------*/
+
+@media only screen and (min-width: 640px) {
+    .sider {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 20%;
+        -ms-flex: 0 1 20%;
+        flex: 0 1 20%;
+        height: 100vh;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        min-width: 150px;
+        max-width: 150px;
+        padding-left: .5rem;
+    }
+    h1 {
+        color: black;
+        position: absolute;
+        -webkit-transform: translateX(-75px) rotate(270deg);
+        transform: translateX(-75px) rotate(270deg);
+        font-size: 100px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: -10px;
+        top: 35px;
+        color: #EDF1F2;
+        font-family: 'Arial', sans-serif;
+        margin-right: .5rem;
+    }
+    .rocketicon {
+        margin-top: 1rem;
+        margin-right: .5rem;
+        font-size: 0.5rem;
+        letter-spacing: 0.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 100px;
+        height: 100px;
+        line-height: 1rem;
+        border-radius: 50%;
+        background: url('../images/mars-icon-background.png');
+        background-size: 100px 100px;
+        color: white;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+    }
+    i.fa-space-shuttle {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        font-size: 4rem;
+        position: relative;
+        left: -5px;
+        top: -4px;
+    }
+}

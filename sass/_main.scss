@@ -1,0 +1,171 @@
+/*page CSS************************/
+
+html, body {
+  color: #222;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.landingpage {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+/*mobile first sider css----------------*/
+
+.sider {
+  width: 0px;
+}
+
+/*-----------------.MAIN DIV CSS--------------*/
+
+.main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 80%;
+  -ms-flex: 1 0 80%;
+  flex: 1 0 80%;
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  background: url('../images/red-planet-mars-wallpaper-3.jpg') no-repeat;
+  background-size: cover;
+  /*background: -webkit-linear-gradient(left, #fd746c, #ff9068);
+  background: linear-gradient(to right, #fd746c, #ff9068);*/
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.testbutton {
+  outline: none;
+  border: 2px solid white;
+  background-color: #EDF1F2;
+  padding: 1rem 4rem;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  margin: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #c1ced2;
+  }
+  &:active {
+    box-shadow: 0 10px 20px transparent;
+  }
+  span {
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    z-index: 1;
+  }
+}
+
+/*----------------MEDIA QUERY-----------------------------*/
+@media only screen and (min-width: 640px) {
+
+  .sider{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 20%;
+        -ms-flex: 0 1 20%;
+            flex: 0 1 20%;
+    height: 100vh;
+    position: relative;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    min-width: 150px;
+    max-width: 150px;
+    padding-left: .5rem;
+  }
+
+  h1{
+    color: black;
+    position: absolute;
+    -webkit-transform: translateX(-75px) rotate(270deg);
+            transform: translateX(-75px) rotate(270deg);
+    font-size: 100px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -10px;
+    top: 35px;
+    color: #EDF1F2;
+    font-family: 'Arial', sans-serif;
+    margin-right: .5rem;
+  }
+
+  .rocketicon {
+    margin-top: 1rem;
+    margin-right: .5rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+    line-height: 1rem;
+    border-radius: 50%;
+    background: url('../images/mars-icon-background.png');
+    background-size: 100px 100px;
+    color: white;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+    }
+
+  i.fa-space-shuttle {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    font-size: 4rem;
+    position: relative;
+    left: -5px;
+    top: -4px;
+   }
+
+}

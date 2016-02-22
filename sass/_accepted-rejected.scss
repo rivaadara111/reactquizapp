@@ -1,0 +1,105 @@
+.msg-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 80vh;
+  h2, h4 {
+    color: white;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.msg-container {
+  h2 {
+    font-size: 150px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: bolder;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
+  }
+  h4 {
+    text-align: center;
+    margin-bottom: 5rem;
+    width: 90%;
+    line-height: 2rem;
+    padding-bottom: 5rem;
+    letter-spacing: .1rem;
+  }
+}
+
+@-webkit-keyframes launch {
+  0% {
+    top: 700px;
+  }
+
+  100% {
+    top: -1500px;
+  }
+}
+
+
+@keyframes launch {
+  0% {
+    top: 700px;
+  }
+
+  100% {
+    top: -1500px;
+  }
+}
+
+
+.rocketlaunch {
+  font-size: 200px;
+  position: relative;
+  -webkit-animation: launch 4s ease-in;
+  animation: launch 4s ease-in;
+  top: -800px;
+  float: left;
+  i {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: white;
+    font-size: 200px;
+  }
+}

@@ -25136,6 +25136,11 @@
 	        { className: 'main' },
 	        React.createElement(
 	          'div',
+	          { className: 'rocketlaunch' },
+	          React.createElement('i', { className: 'fa fa-space-shuttle' })
+	        ),
+	        React.createElement(
+	          'div',
 	          { className: 'msg-container' },
 	          React.createElement(
 	            'h2',
@@ -25145,7 +25150,9 @@
 	          React.createElement(
 	            'h4',
 	            null,
-	            'You have been accepted to Mars mission: Colonize.'
+	            'You have been accepted to Mars mission: Colonize.',
+	            React.createElement('br', null),
+	            'You will be contacted with further information.'
 	          )
 	        )
 	      )
@@ -25200,11 +25207,16 @@
 	            'REJECTED'
 	          ),
 	          React.createElement(
+	            'div',
+	            { className: 'rocketlaunch' },
+	            React.createElement('i', { className: 'fa fa-space-shuttle' })
+	          ),
+	          React.createElement(
 	            'h4',
 	            null,
 	            'We regret to inform you that you are not good enough to colonize mars.',
 	            React.createElement('br', null),
-	            ' Choke smog and die, sucker!!'
+	            'Choke smog and die, sucker!!'
 	          )
 	        )
 	      )
