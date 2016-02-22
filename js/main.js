@@ -24798,7 +24798,7 @@
 	          'div',
 	          { className: 'timercontainer' },
 	          React.createElement(_timer2.default, {
-	            initialStartTime: 6000,
+	            initialStartTime: 60,
 	            onTimerFinished: this._handleFailure,
 	            startTimer: this.state.startTimer })
 	        ),

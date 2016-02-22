@@ -55,7 +55,7 @@ var Taketest = React.createClass({
 
       <div className='timercontainer'>
         <Timer
-          initialStartTime={6000}
+          initialStartTime={60}
           onTimerFinished={this._handleFailure}
           startTimer={this.state.startTimer}/>
       </div>
