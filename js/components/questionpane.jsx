@@ -21,7 +21,7 @@ var Questionpane = React.createClass({
 
 	render() {
 		return (
-      <div className='main'>
+      <div className='questionpane'>
 				<Question
 					currentQuestion={this.props.questions[this.state.questionIndex]}
 					onAnswer={this._handleUserAnswer}/>

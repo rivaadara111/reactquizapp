@@ -6,15 +6,15 @@ import Questionpane from './questionpane.jsx';
 
 var questions = [
  	{
-		question:'   What is the meaning of life? ',
+		question:'  In 1991, there were 60,000 jellyfish orbiting Earth.',
 		answer: true
 	},
 		{
-		question:'  Why? Why? Tell em that its human nature',
+		question:'  There is a nebula shaped like a manatee that scientists named the "Manatee Nebula" in a special ceremony in 2013.',
 		answer: true
 	},
 	{
-		question:'  Whats the answer to the universe?',
+		question:'  The sun is yellow.',
 		answer: true
 	}
 ];
@@ -22,27 +22,22 @@ var questions = [
 
 var Taketest = React.createClass({
 
-  getInitialState() {
-    startTimer: false
+  getInitialState(){
+    return {startTimer: false};
+  },
+
+  //telling browser to start timer with state of startTimer when clicked button is set to true
+  startQuiz: function(){
+    this.setState({startTimer: true});
   },
 
   _handleCorrect() {
     browserHistory.push('/accepted');
   },
-
+//push to rejected page when timer runs out or wrong answers are given
   _handleFailure() {
     browserHistory.push('/rejected');
   },
-
-  getInitialState(){
-    return {startTimer: false};
-  },
-
-//telling browser to start timer with state of startTimer when clicked button is set to true
-  startQuiz: function(){
-    this.setState({startTimer: true});
-  },
-
   // finishTest function to be written HERE to render accepted or rejected page using if/else statement or logical not
 
   render() {
@@ -60,7 +55,7 @@ var Taketest = React.createClass({
 
       <div className='timercontainer'>
         <Timer
-          initialStartTime={10}
+          initialStartTime={6000}
           onTimerFinished={this._handleFailure}
           startTimer={this.state.startTimer}/>
       </div>
@@ -70,11 +65,6 @@ var Taketest = React.createClass({
     </div>
 
   </div>
-
-/*//Macs solution
-<Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
-{ !this.state.start ? <button onClick={this.startQuiz}}
-{this.state. start > this.renderTimer() : ''}*/
 
     )
   }

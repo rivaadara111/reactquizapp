@@ -16,8 +16,10 @@ var Accepted = React.createClass({
         </header>
 
         <div className='main'>
-          <h2>ACCEPTED</h2>
-          <p>You have been accepted to mars mission.</p>
+          <div className='msg-container'>
+            <h2>ACCEPTED</h2>
+            <h4>You have been accepted to Mars mission: Colonize.</h4>
+          </div>
         </div>
 
 

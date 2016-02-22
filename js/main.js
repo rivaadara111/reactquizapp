@@ -91,7 +91,6 @@
 	        React.createElement(_reactRouter.Redirect, { from: '/', to: '/welcomepage' }),
 	        React.createElement(_reactRouter.Route, { path: 'welcomepage', component: _welcomepage2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'take-test', component: _taketest2.default }),
-	        React.createElement(_reactRouter.Route, { path: 'question-pane', component: _questionpane2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'accepted', component: _accepted2.default }),
 	        React.createElement(_reactRouter.Route, { path: 'rejected', component: _rejected2.default }),
 	        React.createElement(_reactRouter.Route, { path: '*', component: _2.default })
@@ -24741,27 +24740,18 @@
 
 
 	var questions = [{
-	  question: '   What is the meaning of life? ',
+	  question: '  In 1991, there were 60,000 jellyfish orbiting Earth.',
 	  answer: true
 	}, {
-	  question: '  Why? Why? Tell em that its human nature',
+	  question: '  There is a nebula shaped like a manatee that scientists named the "Manatee Nebula" in a special ceremony in 2013.',
 	  answer: true
 	}, {
-	  question: '  Whats the answer to the universe?',
+	  question: '  The sun is yellow.',
 	  answer: true
 	}];
 
 	var Taketest = React.createClass({
 	  displayName: 'Taketest',
-	  getInitialState: function getInitialState() {
-	    startTimer: false;
-	  },
-	  _handleCorrect: function _handleCorrect() {
-	    _reactRouter.browserHistory.push('/accepted');
-	  },
-	  _handleFailure: function _handleFailure() {
-	    _reactRouter.browserHistory.push('/rejected');
-	  },
 	  getInitialState: function getInitialState() {
 	    return { startTimer: false };
 	  },
@@ -24770,6 +24760,15 @@
 	  //telling browser to start timer with state of startTimer when clicked button is set to true
 	  startQuiz: function startQuiz() {
 	    this.setState({ startTimer: true });
+	  },
+
+	  _handleCorrect: function _handleCorrect() {
+	    _reactRouter.browserHistory.push('/accepted');
+	  },
+
+	  //push to rejected page when timer runs out or wrong answers are given
+	  _handleFailure: function _handleFailure() {
+	    _reactRouter.browserHistory.push('/rejected');
 	  },
 
 	  // finishTest function to be written HERE to render accepted or rejected page using if/else statement or logical not
@@ -24799,7 +24798,7 @@
 	          'div',
 	          { className: 'timercontainer' },
 	          React.createElement(_timer2.default, {
-	            initialStartTime: 10,
+	            initialStartTime: 6000,
 	            onTimerFinished: this._handleFailure,
 	            startTimer: this.state.startTimer })
 	        ),
@@ -24814,14 +24813,7 @@
 	        ) : '',
 	        !this.state.startTimer ? '' : React.createElement(_questionpane2.default, { onCorrect: this._handleCorrect, onFailure: this._handleFailure, questions: questions })
 	      )
-	    )
-
-	    /*//Macs solution
-	    <Timer countdownMinutes={1} finishQuiz={this.finishQuiz} start={this.state.start}/>
-	    { !this.state.start ? <button onClick={this.startQuiz}}
-	    {this.state. start > this.renderTimer() : ''}*/
-
-	    ;
+	    );
 	  }
 	});
 
@@ -24848,20 +24840,32 @@
 	      secondsToElapse: this.props.initialStartTime
 	    };
 	  },
+
+	  //if the timer component recieves new properties from statTimer (ie. a value of true instead of false), start the timer function
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    if (nextProps.startTimer) this._startTimer();
 	  },
+
+
+	  //start the timer with an interval of 1000 miliseconds per second, then reference the decrement counter
+	  _startTimer: function _startTimer() {
+	    this.interval = setInterval(this._decrementCounter, 1000);
+	  },
+
+
+	  //set the timer to elapse -1 second per 1000 interval; sets it as the new state that secondsToElapse will be this componenets initial state - 1
+	  _decrementCounter: function _decrementCounter() {
+	    this.setState({ secondsToElapse: this.state.secondsToElapse - 1 });
+	  },
+
+
+	  //this is what has the timer stop at 0 if it is at 0 , and updates the compnent with this new property if the seconds to elapse === 0
+	  //when it does === 0, we are running a new function onTimerFinished which will load the rejected page when the if statement evaluates to true
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
 	    if (this.state.secondsToElapse === 0) this.props.onTimerFinished();
 	  },
 	  componentWillUnmount: function componentWillUnmount() {
 	    clearInterval(this.interval);
-	  },
-	  _decrementCounter: function _decrementCounter() {
-	    this.setState({ secondsToElapse: this.state.secondsToElapse - 1 });
-	  },
-	  _startTimer: function _startTimer() {
-	    this.interval = setInterval(this._decrementCounter, 1000);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -24919,7 +24923,7 @@
 		render: function render() {
 			return React.createElement(
 				'div',
-				{ className: 'main' },
+				{ className: 'questionpane' },
 				React.createElement(_question2.default, {
 					currentQuestion: this.props.questions[this.state.questionIndex],
 					onAnswer: this._handleUserAnswer })
@@ -24978,16 +24982,28 @@
 	        this.props.currentQuestion.question
 	      ),
 	      _react2.default.createElement(
-	        'button',
-	        { onClick: this._handleTrue },
-	        'True'
-	      ),
-	      _react2.default.createElement(
-	        'button',
-	        { onClick: function onClick() {
-	            return _this.props.onAnswer(false);
-	          } },
-	        'False'
+	        'div',
+	        { className: 'buttons' },
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this._handleTrue },
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'True'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: function onClick() {
+	              return _this.props.onAnswer(false);
+	            } },
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'False'
+	          )
+	        )
 	      )
 	    );
 	  }
@@ -25119,14 +25135,18 @@
 	        'div',
 	        { className: 'main' },
 	        React.createElement(
-	          'h2',
-	          null,
-	          'ACCEPTED'
-	        ),
-	        React.createElement(
-	          'p',
-	          null,
-	          'You have been accepted to mars mission.'
+	          'div',
+	          { className: 'msg-container' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'ACCEPTED'
+	          ),
+	          React.createElement(
+	            'h4',
+	            null,
+	            'You have been accepted to Mars mission: Colonize.'
+	          )
 	        )
 	      )
 	    );
@@ -25172,15 +25192,20 @@
 	        'div',
 	        { className: 'main' },
 	        React.createElement(
-	          'h2',
-	          null,
-	          'REJECTED'
-	        ),
-	        React.createElement('i', { className: 'fa fa-space-shuttle' }),
-	        React.createElement(
-	          'p',
-	          null,
-	          'We regret to inform you that you are not good enough to colonize mars. Choke smog and die, sucker!!'
+	          'div',
+	          { className: 'msg-container' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'REJECTED'
+	          ),
+	          React.createElement(
+	            'h4',
+	            null,
+	            'We regret to inform you that you are not good enough to colonize mars.',
+	            React.createElement('br', null),
+	            ' Choke smog and die, sucker!!'
+	          )
 	        )
 	      )
 	    );

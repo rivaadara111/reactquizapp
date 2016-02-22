@@ -18,7 +18,6 @@ var App = React.createClass({
       <Redirect from='/' to='/welcomepage'/>
       <Route path='welcomepage' component={Welcomepage}/>
       <Route path='take-test' component={Taketest}/>
-      <Route path='question-pane' component={Questionpane}/>
       <Route path='accepted' component={Accepted}/>
       <Route path='rejected' component={Rejected}/>
       <Route path='*' component={NotFound}/>

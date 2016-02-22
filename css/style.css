@@ -101,8 +101,10 @@ html, body {
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
-  background: -webkit-linear-gradient(left, #fd746c, #ff9068);
-  background: linear-gradient(to right, #fd746c, #ff9068);
+  background: url('../images/red-planet-mars-wallpaper-3.jpg') no-repeat;
+  background-size: cover;
+  /*background: -webkit-linear-gradient(left, #fd746c, #ff9068);
+  background: linear-gradient(to right, #fd746c, #ff9068);*/
   height:100vh;
   width: 100%;
   margin:0;
@@ -132,6 +134,9 @@ html, body {
 
 .testbutton:hover {
     cursor: pointer;
+    background-color: grey;
+
+    }
   }
 
 .testbutton:active {
@@ -178,7 +183,6 @@ html, body {
   height: 30vh;
   width: 50vw;
   background-color: #EDF1F2;
-  border: 2px solid white;
   border-radius: 2px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   font-family:'Arial', sans-serif;
@@ -187,14 +191,67 @@ html, body {
   color: black;
   padding:1rem;
   }
-input{
+/*input{
   line-height: 2rem;
   font-size: 1rem;
   width: 90%;
   outline: none;
   cursor: darkgrey;
   padding-left: .5rem;
+}*/
+.buttons{
+  text-align: center;
 }
+.buttons button{
+  outline: none;
+  border: 2px solid white;
+  padding: .5rem 2rem;
+  border-radius: 1px;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.buttons button:hover{
+  background-color: grey;
+
+}
+
+.buttons button span{
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.msg-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.msg-container h2, h4 {
+  color: white;
+
+}
+
+.msg-container h2{
+  font-size: 150px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.msg-container h4{
+  text-align: center;
+  margin-bottom: 5rem;
+  width: 90%;
+  line-height: 2rem;
+  padding-bottom: 5rem;
+  letter-spacing: .1rem;
+}
+
 /*----------------MEDIA QUERY-----------------------------*/
 @media only screen and (min-width: 640px) {
 
