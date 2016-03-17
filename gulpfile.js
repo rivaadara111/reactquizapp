@@ -13,7 +13,7 @@ var historyApiFallback = require('connect-history-api-fallback');
 
 
 gulp.task('sass', function() {
-   gulp.src('./sass/sass.scss')
+   gulp.src('./src/sass/*.scss')
       .pipe(sass())
       .pipe(autoprefixer({
          browsers: ['last 2 versions']
@@ -24,11 +24,11 @@ gulp.task('sass', function() {
 });
 
 gulp.task('compile-react', function() {
-	return gulp.src('./js/main.jsx')
+	return gulp.src('./src/js/main.jsx')
 		.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
 		.pipe(webpack({
       output: {
-        filename: 'main.js'
+        filename: 'main.js',
     },
     module: {
       loaders: [
@@ -43,7 +43,7 @@ gulp.task('compile-react', function() {
   ]
 }
 }))
-		.pipe(gulp.dest('./js'));
+		.pipe(gulp.dest('./build/js'));
 });
 
 gulp.task('copy-html', function(){
@@ -55,16 +55,17 @@ gulp.task('browser-sync', ['compile-react'], function() {
 
 	browserSync.init({
 		server:{
-    baseDir: './',
+    baseDir: './build',
     middleware: [historyApiFallback()]
     }
 	});
+
 //'./components/*',
-	gulp.watch(['./js/main.jsx'], ['compile-react']);
-  gulp.watch(['./js/components/*.jsx'], ['compile-react']);
-	gulp.watch(['./js/main.js','./css/style.css','./build/css/style.min.css', 'index.html', 'compile-react', './js/*jsx'] ).on('change', browserSync.reload);
+	gulp.watch(['./src/js/main.jsx'],['./src/js/components/*.jsx'], ['compile-react']);
+  gulp.watch(['./src/js/components/*.jsx'], ['compile-react']);
+	gulp.watch(['./build/js/main.js','./src/sass/*.scss','./build/css/style.min.css', 'index.html', 'compile-react', './src/js/*jsx'] ).on('change', browserSync.reload);
   gulp.watch(['index.html'], ['copy-html']);
-  gulp.watch('./sass/*.scss', ['sass']);
+  gulp.watch('./src/sass/*.scss', ['sass']);
   });
 
 gulp.task('default', ['sass', 'browser-sync']);

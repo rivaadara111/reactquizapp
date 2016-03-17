@@ -1,0 +1,19 @@
+//variables and mixins always go first.
+//
+// @import 'variables';
+// @import 'mixins';
+
+//compiled in the stylesheet
+
+@import 'reset';
+@import 'main';
+@import 'accepted-rejected';
+@import 'questionpane-timer';
+
+@font-face {
+    font-family: 'digital-7regular';
+    src: url('../../fonts/digital-7-webfont.eot');
+    src: url('../../fonts/digital-7-webfont.eot?#iefix') format('embedded-opentype'), url('.././fonts/digital-7-webfont.woff2') format('woff2'), url('.././fonts/digital-7-webfont.woff') format('woff'), url('.././fonts/digital-7-webfont.ttf') format('truetype'), url('.././fonts/digital-7-webfont.svg#digital-7regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
